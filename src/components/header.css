@@ -1,0 +1,43 @@
+.header-container {
+  display: flex;
+  flex-direction: column;
+}
+.shop-name {
+  display: flex;
+}
+.link-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+}
+.linktag-a {
+  margin-right: 25px;
+  font-weight: bold;
+}
+.name {
+  font-size: xxx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding-left: 40px;
+  font-family: cursive;
+  color: #9b5902;
+  color: #9b5902;
+}
+.quatation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.highlight {
+  font-family: cursive;
+  color: #a06620;
+  font-size: x-large;
+}
