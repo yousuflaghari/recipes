@@ -6,7 +6,7 @@ const SearchPage = () => {
   const [search, setSearch] = useState("");
   const recipes = useSelector((state) => state.recipes);
 
-  const handleInputChange = (e) => {
+  const InputChange = (e) => {
     setSearch(e.target.value);
   };
 
@@ -21,7 +21,7 @@ const SearchPage = () => {
         placeholder="Enter the Recipe"
         className="searchbar"
         value={search}
-        onChange={handleInputChange}
+        onChange={InputChange}
       />
       <div className="search-results">
         {search && filteredRecipes.length > 0
