@@ -1,22 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import ROUTES from "../utils/constants/constants";
 
 const Header = () => {
   const navigate = useNavigate();
 
   const handleSearchIconClick = () => {
-    navigate("/search");
+    navigate(ROUTES.SEARCH);
   };
-  /* const types = useSelector((state) => state.types);
-
-  const filteredTypes = types?.filter((type) =>
-    type.mealType.includes("Appetizer")
-  );
- */
 
   return (
     <div className="header-container">
@@ -25,16 +19,16 @@ const Header = () => {
           <p className="name">pinch of yum</p>
         </div>
         <div className="link-tag">
-          <Link to="/dinner" className="linktag-a">
+          <Link to={ROUTES.DINNER} className="linktag-a">
             DINNER
           </Link>
-          <Link to="/lunch" className="linktag-a">
+          <Link to={ROUTES.LUNCH} className="linktag-a">
             LUNCH
           </Link>
-          <Link to="/dessert" className="linktag-a">
+          <Link to={ROUTES.DESSERTS} className="linktag-a">
             DESSERT
           </Link>
-          <Link to="/snack" className="linktag-a">
+          <Link to={ROUTES.SNAKS} className="linktag-a">
             SNACK
           </Link>
           <div className="search-icon" onClick={handleSearchIconClick}>

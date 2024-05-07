@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Recipe from "../components/recipe";
 import Topbar from "../components/topbar";
 import Header from "../components/header";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
-import { useSelector } from "react-redux";
-
+import { fetchRecipes } from "../redux/action/action";
+import ROUTES from "../utils/constants/constants";
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchRecipes());
+  }, [dispatch]);
+
   const navigate = useNavigate();
   const recipes = useSelector((state) => state.recipes);
 
   const navigaterecipe = (recipeId) => {
-    navigate(`/recipes/${recipeId}`);
+    console.log("qqqqqqqqq", recipeId);
+    navigate(ROUTES.RECIPEDETAIL(recipeId));
   };
-
   return (
     <div className="homepage-cont">
       <Topbar />
       <Header />
-      {/* Opening <div> tag was missing here */}
       <div className="recipes-container">
         {recipes.map((recipe) => (
           <div
@@ -30,7 +35,6 @@ const Home = () => {
           </div>
         ))}
       </div>
-      {/* Closing </div> tag for .recipes-container */}
     </div>
   );
 };
