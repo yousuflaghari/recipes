@@ -1,6 +1,37 @@
 import React, { useState } from "react";
-import "./search.css";
 import { useSelector } from "react-redux";
+import styled from "@emotion/styled";
+
+const SearchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SearchBar = styled.input`
+  width: 740px;
+  border: 1px solid;
+  border-radius: 23px;
+  padding-left: 200px;
+  font-size: x-large;
+  margin: 5px 20px;
+`;
+
+const SearchResults = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+`;
+
+const RecipeItem = styled.div`
+  margin: 20px;
+`;
+
+const ImageSearch = styled.img`
+  width: 200px;
+  height: 200px;
+`;
 
 const SearchPage = () => {
   const [search, setSearch] = useState("");
@@ -15,30 +46,26 @@ const SearchPage = () => {
   );
 
   return (
-    <div className="search-container">
-      <input
+    <SearchContainer>
+      <SearchBar
         type="text"
         placeholder="Enter the Recipe"
-        className="searchbar"
         value={search}
         onChange={InputChange}
       />
-      <div className="search-results">
-        {search && filteredRecipes.length > 0
-          ? filteredRecipes.map((recipe) => (
-              <div key={recipe.id} className="recipe-item">
-                <img
-                  src={recipe.image}
-                  alt={recipe.name}
-                  className="img-search"
-                />
-                <h3>{recipe.name}</h3>
-              </div>
-            ))
-          : null}
-        {search && filteredRecipes.length === 0 && <p>No recipes found</p>}
-      </div>
-    </div>
+      <SearchResults>
+        {search && filteredRecipes.length > 0 ? (
+          filteredRecipes.map((recipe) => (
+            <RecipeItem key={recipe.id}>
+              <ImageSearch src={recipe.image} alt={recipe.name} />
+              <h3>{recipe.name}</h3>
+            </RecipeItem>
+          ))
+        ) : search && filteredRecipes.length === 0 ? (
+          <p>No recipes found</p>
+        ) : null}
+      </SearchResults>
+    </SearchContainer>
   );
 };
 

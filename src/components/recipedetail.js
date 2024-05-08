@@ -1,9 +1,80 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import "./recipedetail.css";
+import styled from "@emotion/styled";
 import Topbar from "./topbar";
 import Header from "./header";
+
+const RecipedetailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+`;
+
+const RecipeImageContainer = styled.div`
+  padding: 50px;
+  margin-left: 20px;
+`;
+
+const RecipeDetailContainer = styled.div`
+  padding: 50px;
+  margin-left: 20px;
+  margin-top: 40px;
+`;
+
+const Image = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+`;
+
+const RecipeName = styled.h4`
+  color: #6f091f;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+`;
+
+const FeatureName = styled.h4`
+  color: #a39a9a;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+`;
+
+const RecipeType = styled.div`
+  font-weight: bold;
+  font-size: xx-large;
+  color: rgb(148 81 86);
+`;
+
+const RecipeInstructions = styled.div`
+  color: #767697;
+  margin-top: 30px;
+`;
+
+const CaloriesRatingReviewsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-left: 100px;
+  margin-right: 100px;
+  color: brown;
+`;
+
+const TagsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  color: blue;
+`;
+
+const Tag = styled.p`
+  margin-right: 10px;
+`;
+
 const Recipedetail = () => {
   const { recipeId } = useParams();
   const recipes = useSelector((state) => state.recipes);
@@ -11,31 +82,32 @@ const Recipedetail = () => {
   const tags = recipe.tags;
 
   return (
-    <div className="recipedetail-container">
+    <RecipedetailContainer>
       <Topbar />
       <Header />
-      <div className="main">
-        <div className="recipe-image">
-          <img className="img" src={recipe.image} alt={recipe.title} />
-          <h4 className="featurename">FEATURED RECIPE:</h4>
-          <h4 className="recipedetail-name">{recipe.name}</h4>
-        </div>
-        <div className="recipe-detail">
-          <div className="recipe-type"> {recipe.name}</div>
-          <div className="recipe-instructions">{recipe.instructions}</div>
-        </div>
-      </div>
-      <div className="calories-rating-reveiws">
+      <MainContainer>
+        <RecipeImageContainer>
+          <Image src={recipe.image} alt={recipe.title} />
+          <FeatureName>FEATURED RECIPE:</FeatureName>
+          <RecipeName>{recipe.name}</RecipeName>
+        </RecipeImageContainer>
+        <RecipeDetailContainer>
+          <RecipeType>{recipe.name}</RecipeType>
+          <RecipeInstructions>{recipe.instructions}</RecipeInstructions>
+        </RecipeDetailContainer>
+      </MainContainer>
+      <CaloriesRatingReviewsContainer>
         <p className="calories">calories: {recipe.caloriesPerServing} </p>
         <p className="rating">rating: {recipe.rating}</p>
         <p className="reviews"> reviews: {recipe.reviewCount}</p>
-      </div>
-      <div className="tags">
-        {tags.map((tag) => (
-          <p className="tags">#{tag}</p>
+      </CaloriesRatingReviewsContainer>
+      <TagsContainer>
+        {tags.map((tag, index) => (
+          <Tag key={index}>#{tag}</Tag>
         ))}
-      </div>
-    </div>
+      </TagsContainer>
+    </RecipedetailContainer>
   );
 };
+
 export default Recipedetail;
