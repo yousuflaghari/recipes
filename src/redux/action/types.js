@@ -1,0 +1,3 @@
+export const ADD_RECIPE = "ADD_RECIPE";
+export const ADD_TYPES = "ADD_TYPES";
+export const UPDATE_SEARCH_RESULTS = "UPDATE_SEARCH_RESULTS";
