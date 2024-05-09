@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { fetchRecipes } from "../redux/action/action";
 import ROUTES from "../utils/constants/constants";
+import { theme } from "../styles/theme";
 
 const LoaderContainer = styled.div`
   position: fixed;
@@ -13,16 +14,16 @@ const LoaderContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: ${theme.colors.loadercontainerColor};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const Loader = styled.div`
-  border: 16px solid #f3f3f3;
+  border: 16px solid ${theme.colors.loaderBorderColor};
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid ${theme.colors.loaderBordertopColor};
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
@@ -37,7 +38,6 @@ const Loader = styled.div`
       -webkit-transform: rotate(360deg);
     }
   }
-
   @keyframes spin {
     0% {
       transform: rotate(0deg);

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { theme } from "../styles/theme";
 
 const TopContainer = styled.div`
-  color: white;
+  color: ${theme.colors.topcontainerColor};
   display: flex;
   width: auto;
-  background-color: #7c3030;
+  background-color: ${theme.colors.topcontainerBackgroundColor};
   align-items: center;
   justify-content: center;
   font-size: large;

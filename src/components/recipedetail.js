@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import styled from "@emotion/styled";
 import Topbar from "./topbar";
 import Header from "./header";
+import { theme } from "../styles/theme";
 
 const RecipedetailContainer = styled.div`
   display: flex;
@@ -32,28 +33,28 @@ const Image = styled.img`
 `;
 
 const RecipeName = styled.h4`
-  color: #6f091f;
+  color: ${theme.colors.recipenameColor};
   display: flex;
   justify-content: center;
-  margin: 0px;
+  margin: 0;
 `;
 
 const FeatureName = styled.h4`
-  color: #a39a9a;
+  color: ${theme.colors.featurenameColor};
   padding-left: 20px;
   display: flex;
   justify-content: center;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 `;
 
 const RecipeType = styled.div`
   font-weight: bold;
   font-size: xx-large;
-  color: rgb(148 81 86);
+  color: ${theme.colors.recipetypeColor};
 `;
 
 const RecipeInstructions = styled.div`
-  color: #767697;
+  color: ${theme.colors.receipeInstructionsColor};
   margin-top: 30px;
 `;
 
@@ -62,13 +63,13 @@ const CaloriesRatingReviewsContainer = styled.div`
   justify-content: space-between;
   margin-left: 100px;
   margin-right: 100px;
-  color: brown;
+  color: ${theme.colors.caloriesratingreviewscontainerColor};
 `;
 
 const TagsContainer = styled.div`
   display: flex;
   justify-content: center;
-  color: blue;
+  color: ${theme.colors.tagscontainerColor};
 `;
 
 const Tag = styled.p`
@@ -97,9 +98,9 @@ const Recipedetail = () => {
         </RecipeDetailContainer>
       </MainContainer>
       <CaloriesRatingReviewsContainer>
-        <p className="calories">calories: {recipe.caloriesPerServing} </p>
+        <p className="calories">calories: {recipe.caloriesPerServing}</p>
         <p className="rating">rating: {recipe.rating}</p>
-        <p className="reviews"> reviews: {recipe.reviewCount}</p>
+        <p className="reviews">reviews: {recipe.reviewCount}</p>
       </CaloriesRatingReviewsContainer>
       <TagsContainer>
         {tags.map((tag, index) => (

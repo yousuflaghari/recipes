@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import ROUTES from "../utils/constants/constants";
+import { theme } from "../styles/theme";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -26,10 +27,10 @@ const Name = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0px;
+  margin: 0;
   padding-left: 40px;
   font-family: cursive;
-  color: #9b5902;
+  color: ${theme.colors.nameColor};
 `;
 
 const LinkTag = styled.div`
@@ -56,7 +57,7 @@ const Quotation = styled.div`
 
 const Highlight = styled.span`
   font-family: cursive;
-  color: #a06620;
+  color: ${theme.colors.highlightColor};
   font-size: x-large;
 `;
 

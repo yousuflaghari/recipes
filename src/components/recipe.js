@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { theme } from "../styles/theme";
 
 const RecipeContainer = styled.div`
   border: 1px solid;
@@ -12,8 +13,8 @@ const RecipeContainer = styled.div`
 
 const RecipeNameContainer = styled.div`
   display: flex;
-  margin: 0px;
-  background-color: bisque;
+  margin: 0;
+  background-color: ${theme.colors.recipenamecontainerBackgroundColor};
   padding-left: 10px;
   padding-right: 10px;
   margin-top: -24px;
@@ -23,11 +24,11 @@ const RecipeNameContainer = styled.div`
 const RecipeImage = styled.img`
   height: 200px;
   width: 200px;
-  margin-bottom: 10px; /* Adjust margin between image and name */
+  margin-bottom: 10px;
 `;
 
 const RecipeName = styled.h1`
-  font-size: 10px;
+  font-size: 16px;
   text-align: center;
 `;
 
