@@ -17,5 +17,11 @@ export const theme = {
     loaderBordertopColor: "#3498db",
     primaryappColor: "hotpink",
     backgroundappColor: "lightgrey",
+    lightthemebackground: "grey",
+    lightthemetext: "yellow",
+    lightthemehighlight: "#a06620",
+    darkthemebackground: "#1a1a1a",
+    darkthemetext: "black",
+    darkthemehighlight: "#ffa500",
   },
 };

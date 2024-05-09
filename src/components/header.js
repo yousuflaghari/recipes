@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMoon,
+  faSun,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import ROUTES from "../utils/constants/constants";
 import { theme } from "../styles/theme";
@@ -61,7 +65,14 @@ const Highlight = styled.span`
   font-size: x-large;
 `;
 
-const Header = () => {
+const ToggleButton = styled.button`
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
+  margin-left: ;
+`;
+
+const Header = ({ darkMode, toggleTheme }) => {
   const navigate = useNavigate();
 
   const handleSearchIconClick = () => {
@@ -82,6 +93,9 @@ const Header = () => {
           <SearchIcon onClick={handleSearchIconClick}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </SearchIcon>
+          <ToggleButton onClick={toggleTheme}>
+            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+          </ToggleButton>
         </LinkTag>
       </NameTag>
       <Quotation>
