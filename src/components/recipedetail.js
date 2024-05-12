@@ -13,6 +13,10 @@ const RecipedetailContainer = styled.div`
 
 const MainContainer = styled.div`
   display: flex;
+
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+  }
 `;
 
 const RecipeImageContainer = styled.div`
@@ -33,14 +37,14 @@ const Image = styled.img`
 `;
 
 const RecipeName = styled.h4`
-  color: ${theme.colors.recipenameColor};
+  color: ${(props) => props.theme.colors.recipenameColor};
   display: flex;
   justify-content: center;
   margin: 0;
 `;
 
 const FeatureName = styled.h4`
-  color: ${theme.colors.featurenameColor};
+  color: ${(props) => props.theme.colors.featurenameColor};
   padding-left: 20px;
   display: flex;
   justify-content: center;
@@ -50,11 +54,11 @@ const FeatureName = styled.h4`
 const RecipeType = styled.div`
   font-weight: bold;
   font-size: xx-large;
-  color: ${theme.colors.recipetypeColor};
+  color: ${(props) => props.theme.colors.recipetypeColor};
 `;
 
 const RecipeInstructions = styled.div`
-  color: ${theme.colors.receipeInstructionsColor};
+  color: ${(props) => props.theme.colors.receipeInstructionsColor};
   margin-top: 30px;
 `;
 
@@ -63,13 +67,13 @@ const CaloriesRatingReviewsContainer = styled.div`
   justify-content: space-between;
   margin-left: 100px;
   margin-right: 100px;
-  color: ${theme.colors.caloriesratingreviewscontainerColor};
+  color: ${(props) => props.theme.colors.caloriesratingreviewscontainerColor};
 `;
 
 const TagsContainer = styled.div`
   display: flex;
   justify-content: center;
-  color: ${theme.colors.tagscontainerColor};
+  color: ${(props) => props.theme.colors.tagscontainerColor};
 `;
 
 const Tag = styled.p`
@@ -85,7 +89,6 @@ const Recipedetail = () => {
   return (
     <RecipedetailContainer>
       <Topbar />
-      <Header />
       <MainContainer>
         <RecipeImageContainer>
           <Image src={recipe.image} alt={recipe.title} />

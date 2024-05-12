@@ -5,13 +5,23 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchRecipes } from "../redux/action/action";
 import styled from "@emotion/styled";
+
 const Heading = styled.h2`
   display: flex;
   justify-content: center;
+  color: ${(props) => props.theme.colors.headingColor};
 `;
 
 const RecipeListContainer = styled.div`
   margin-top: 20px;
+`;
+const UnorderListRecipes = styled.div`
+  margin-top: 20px;
+  @media screen and (max-width: 780px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 const RecipeList = ({ mealType }) => {
@@ -29,11 +39,11 @@ const RecipeList = ({ mealType }) => {
   return (
     <RecipeListContainer>
       <Heading>{mealType.toUpperCase()} RECIPES</Heading>
-      <ul>
+      <UnorderListRecipes>
         {filteredRecipes.map((recipe) => (
           <Recipe key={recipe.id} recipe={recipe} />
         ))}
-      </ul>
+      </UnorderListRecipes>
     </RecipeListContainer>
   );
 };

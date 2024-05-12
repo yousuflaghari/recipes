@@ -15,6 +15,12 @@ const SearchBar = styled.input`
   padding-left: 200px;
   font-size: x-large;
   margin: 5px 20px;
+  @media screen and (max-width: 780px) {
+    width: 80%;
+    padding: 20px;
+    font-size: large;
+    margin: 0px;
+  }
 `;
 
 const SearchResults = styled.div`

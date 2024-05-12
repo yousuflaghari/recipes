@@ -14,16 +14,17 @@ const LoaderContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${theme.colors.loadercontainerColor};
+
+  background-color: ${(props) => props.theme.colors.loadercontainerColor};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const Loader = styled.div`
-  border: 16px solid ${theme.colors.loaderBorderColor};
+  border: 16px solid ${(props) => props.theme.colors.loaderBorderColor};
   border-radius: 50%;
-  border-top: 16px solid ${theme.colors.loaderBordertopColor};
+  border-top: 16px solid ${(props) => props.theme.colors.loaderBordertopColor};
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;

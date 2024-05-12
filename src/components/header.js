@@ -8,17 +8,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import ROUTES from "../utils/constants/constants";
-import { theme } from "../styles/theme";
 
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const NameTag = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+  }
 `;
 
 const ShopName = styled.div`
@@ -34,7 +42,10 @@ const Name = styled.p`
   margin: 0;
   padding-left: 40px;
   font-family: cursive;
-  color: ${theme.colors.nameColor};
+  color: ${(props) => props.theme.colors.nameColor};
+  @media screen and (max-width: 780px) {
+    padding: 0px;
+  }
 `;
 
 const LinkTag = styled.div`
@@ -42,11 +53,24 @@ const LinkTag = styled.div`
   align-items: center;
   justify-content: center;
   padding-right: 20px;
+
+  @media screen and (max-width: 780px) {
+    flex-direction: row;
+    margin-top: 5px;
+    padding: 0px;
+  }
 `;
 
 const StyledLink = styled(Link)`
   margin-right: 25px;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.linksColor};
+
+  @media screen and (max-width: 780px) {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const SearchIcon = styled.div`
@@ -61,15 +85,29 @@ const Quotation = styled.div`
 
 const Highlight = styled.span`
   font-family: cursive;
-  color: ${theme.colors.highlightColor};
+  color: ${(props) => props.theme.colors.highlightColor};
   font-size: x-large;
+`;
+
+const StyledH4 = styled.h4`
+  color: ${(props) => props.theme.colors.highlightColor};
+  @media screen and (max-width: 780px) {
+    align_items: center;
+  }
 `;
 
 const ToggleButton = styled.button`
   cursor: pointer;
-  margin-right: 10px;
   border-radius: 5px;
-  margin-left: ;
+  margin-left: 30px;
+
+  @media screen and (max-width: 780px) {
+    margin-left: 5px;
+  }
+`;
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  color: ${(props) => props.theme.colors.fontawesomeiconColor};
 `;
 
 const Header = ({ darkMode, toggleTheme }) => {
@@ -91,18 +129,18 @@ const Header = ({ darkMode, toggleTheme }) => {
           <StyledLink to={ROUTES.DESSERTS}>DESSERT</StyledLink>
           <StyledLink to={ROUTES.SNAKS}>SNACK</StyledLink>
           <SearchIcon onClick={handleSearchIconClick}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <StyledFontAwesomeIcon icon={faMagnifyingGlass} />
           </SearchIcon>
           <ToggleButton onClick={toggleTheme}>
-            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+            <StyledFontAwesomeIcon icon={darkMode ? faSun : faMoon} />
           </ToggleButton>
         </LinkTag>
       </NameTag>
       <Quotation>
-        <h4>
+        <StyledH4>
           SIMPLE RECIPES MADE FOR{" "}
           <Highlight>real, actual, everyday life.</Highlight>
-        </h4>
+        </StyledH4>
       </Quotation>
     </HeaderContainer>
   );

@@ -3,10 +3,11 @@ import styled from "@emotion/styled";
 import { theme } from "../styles/theme";
 
 const TopContainer = styled.div`
-  color: ${theme.colors.topcontainerColor};
+  color: ${(props) => props.theme.colors.topcontainerColor};
   display: flex;
   width: auto;
-  background-color: ${theme.colors.topcontainerBackgroundColor};
+  background-color: ${(props) =>
+    props.theme.colors.topcontainerBackgroundColor};
   align-items: center;
   justify-content: center;
   font-size: large;

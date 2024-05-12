@@ -1,4 +1,4 @@
-export const theme = {
+export const lightTheme = {
   colors: {
     receipeInstructionsColor: "#767697",
     nameColor: "#9b5902",
@@ -15,13 +15,34 @@ export const theme = {
     loadercontainerColor: "rgba(255, 255, 255, 0.8)",
     loaderBorderColor: "#f3f3f3",
     loaderBordertopColor: "#3498db",
-    primaryappColor: "hotpink",
-    backgroundappColor: "lightgrey",
-    lightthemebackground: "grey",
-    lightthemetext: "yellow",
-    lightthemehighlight: "#a06620",
-    darkthemebackground: "#1a1a1a",
-    darkthemetext: "black",
-    darkthemehighlight: "#ffa500",
+    appbackgroundcolor: "white",
+    linksColor: "#074ab5",
+    headingColor: "black",
+    fontawesomeiconColor: "black",
+    recipecontainerbordercolor: "black",
+  },
+};
+export const darkTheme = {
+  colors: {
+    recipecontainerbordercolor: "white",
+    fontawesomeiconColor: "white",
+    headingColor: "white",
+    receipeInstructionsColor: "#7F7F7F",
+    nameColor: "red",
+    highlightColor: "#FF7F50",
+    recipenamecontainerBackgroundColor: "#9df593",
+    recipenameColor: "red",
+    featurenameColor: "red",
+    recipetypeColor: "red",
+    recipeinstructionsColor: "#A0A0A0",
+    caloriesratingreviewscontainerColor: "#8B4513",
+    tagscontainerColor: "#4682B4",
+    topcontainerColor: "white",
+    topcontainerBackgroundColor: "#6f86f7",
+    loadercontainerColor: "rgba(79, 79, 79, 0.8)",
+    loaderBorderColor: "#FFFFFF",
+    loaderBordertopColor: "#4682B4",
+    appbackgroundcolor: "black",
+    linksColor: "white",
   },
 };

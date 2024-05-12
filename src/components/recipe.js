@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { theme } from "../styles/theme";
 
 const RecipeContainer = styled.div`
-  border: 1px solid;
+  border: 1px ${(props) => props.theme.colors.recipecontainerbordercolor};
   display: inline-flex;
   align-items: flex-start;
   margin: 10px;
@@ -13,12 +12,18 @@ const RecipeContainer = styled.div`
 
 const RecipeNameContainer = styled.div`
   display: flex;
+  height: 34px;
+  width: 121px;
   margin: 0;
-  background-color: ${theme.colors.recipenamecontainerBackgroundColor};
+  background-color: ${(props) =>
+    props.theme.colors.recipenamecontainerBackgroundColor};
   padding-left: 10px;
   padding-right: 10px;
   margin-top: -24px;
   margin-left: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const RecipeImage = styled.img`
@@ -32,12 +37,21 @@ const RecipeName = styled.h1`
   text-align: center;
 `;
 
+const truncateRecipeName = (name, maxWords) => {
+  const words = name.split(" ");
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(" ") + "...";
+  }
+  return name;
+};
+
 const Recipe = ({ recipe }) => {
+  const truncatedName = truncateRecipeName(recipe.name, 2);
   return (
     <RecipeContainer>
       <RecipeImage src={recipe.image} />
       <RecipeNameContainer>
-        <RecipeName>{recipe.name}</RecipeName>
+        <RecipeName>{truncatedName}</RecipeName>
       </RecipeNameContainer>
     </RecipeContainer>
   );
